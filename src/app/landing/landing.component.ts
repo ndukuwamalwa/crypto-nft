@@ -4,7 +4,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 import { CRYPTO_CURRENCIES } from '../cryptos';
 import { APP_PROTOS } from '../images';
-import { IPhoto } from '../models';
+import { ICrypto, IPhoto } from '../models';
 
 @Component({
   selector: 'app-landing',
@@ -15,10 +15,7 @@ export class LandingComponent {
   firstButtonsSet = this.splitButtonsIntoTwo(true);
   lastButtonsSet = this.splitButtonsIntoTwo(false);
   photos = APP_PROTOS;
-  selectedButton: { label: string; icon: IconProp } = {
-    label: 'ethereum',
-    icon: faEthereum,
-  };
+  selectedButton: { label: string; icon: IconProp } = this.getSelectedCrypto();
   counter = '07:14:35';
 
   constructor(private router: Router) {}
@@ -33,11 +30,24 @@ export class LandingComponent {
     return cryptoButtons.slice(middle, cryptoButtons.length);
   }
 
+  getSelectedCrypto() {
+    const saved = localStorage.getItem('crypto');
+    if (saved) {
+      return JSON.parse(saved);
+    }
+    return {
+      label: 'ethereum',
+      icon: faEthereum,
+    };
+  }
+
   goToPlaceBid(photo: IPhoto) {
     this.router.navigate(['bid', photo.url]);
   }
 
-  goToCrypto(label: string) {
-    this.router.navigate(['crypto-trends', label]);
+  goToCrypto(btn: ICrypto) {
+    this.selectedButton = btn;
+    localStorage.setItem('crypto', JSON.stringify(btn));
+    this.router.navigate(['crypto-trends', btn.label]);
   }
 }

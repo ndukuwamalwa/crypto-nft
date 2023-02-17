@@ -8,13 +8,17 @@
 <main id="main">
     <div id="coins">
         <div>
-            <button class="btn btn-grey" *ngFor="let cb of firstButtonsSet" (click)="goToCrypto(cb.label)">
+            <button class="btn"
+                [ngClass]="{ 'btn-grey': cb.label !== selectedButton.label, 'btn-secondary': cb.label === selectedButton.label }"
+                *ngFor="let cb of firstButtonsSet" (click)="goToCrypto(cb)">
                 <span><fa-icon [icon]="cb.icon" [fixedWidth]="true"></fa-icon></span>
                 <span>{{cb.label}}</span>
             </button>
         </div>
         <div>
-            <button class="btn btn-grey" *ngFor="let cb of lastButtonsSet" (click)="goToCrypto(cb.label)">
+            <button class="btn"
+                [ngClass]="{ 'btn-grey': cb.label !== selectedButton.label, 'btn-secondary': cb.label === selectedButton.label }"
+                *ngFor="let cb of lastButtonsSet" (click)="goToCrypto(cb)">
                 <span><fa-icon [icon]="cb.icon"></fa-icon></span>
                 <span>{{cb.label}}</span>
             </button>

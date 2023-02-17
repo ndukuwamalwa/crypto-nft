@@ -1,5 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+
+@media screen and (min-width: 500px) {
+  #main-content {
+    display: none;
+  }
+
+  #screen-size-warn {
+    color: red;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #screen-size-warn {
+    display: none;
+  }
+}
+
 :root {
   --app-dark-color: #0e0e18;
   --app-primary-color: #5957bb;
@@ -61,29 +78,24 @@ body {
 
 .back-arrow {
   position: fixed !important;
-  top: 45px;
-  left: 35px;
-  font-size: 50px;
-  font-weight: normal !important;
+  top: 25px;
+  left: 15px;
+  font-size: 35px;
   color: #fff;
   mix-blend-mode: difference;
 }
 
-.app-page {
-  animation-name: transitionIntoView;
-  /*animation-iteration-count: 1;
-  animation-duration: 5s;
-  animation-direction: alternate-reverse;
-  transform-box: view-box;
-  animation-fill-mode: forwards;*/
+img {
+  animation-name: shoImage;
+  animation-duration: 4s;
 }
 
-@keyframes transitionIntoView {
+@keyframes shoImage {
   from {
-    width: 100%;
+    opacity: 0;
   }
 
   to {
-    width: 100%;
+    opacity: 1;
   }
 }
