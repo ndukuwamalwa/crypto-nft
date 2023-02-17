@@ -1,0 +1,33 @@
+<div id="header">
+    <div>
+        <span>your balance</span>
+        <h1>{{1234.56 | currency}}</h1>
+    </div>
+    <button class="btn btn-plain">+</button>
+</div>
+<main id="main">
+    <div id="coins">
+        <div>
+            <button class="btn btn-grey" *ngFor="let cb of firstButtonsSet">
+                <span><fa-icon [icon]="cb.icon" [fixedWidth]="true"></fa-icon></span>
+                <span>{{cb.label}}</span>
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-grey" *ngFor="let cb of lastButtonsSet">
+                <span><fa-icon [icon]="cb.icon"></fa-icon></span>
+                <span>{{cb.label}}</span>
+            </button>
+        </div>
+    </div>
+    <div id="photos">
+        <div *ngFor="let p of photos">
+            <img [src]="'../assets/img/' + p.url" alt="Test Photo" loading="lazy">
+            <div>
+                <fa-icon [icon]="selectedButton.icon" [fixedWidth]="true"></fa-icon>
+                <span>{{p.amount}}</span>
+                <span>{{counter}}</span>
+            </div>
+        </div>
+    </div>
+</main>
