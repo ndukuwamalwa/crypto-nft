@@ -1,0 +1,26 @@
+<div id="photoView" class="app-page">
+    <fa-icon [icon]="backButton" routerLink="/" class="back-arrow"></fa-icon>
+    <img [src]="'../../assets/img/' + photo.url" [alt]="photo.name">
+    <h2>{{photo.name}}</h2>
+    <section>
+        <div id="owner-info">
+            <div>
+                <span>creator</span>
+                <div>
+                    <fa-icon [icon]="userIcon" [fixedWidth]="true"></fa-icon>
+                    <span>{{photo.creator}}</span>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-clear"><fa-icon [icon]="userAddIcon" [fixedWidth]="true"></fa-icon></button>
+            </div>
+        </div>
+        <div id="cost-info">
+            <button class="btn btn-grey">07:13:12</button>
+            <button class="btn btn-grey"><fa-icon [icon]="ethereumIcon"></fa-icon><span>{{photo.amount}}</span></button>
+        </div>
+        <div id="bid-action">
+            <button class="btn btn-secondary">place a bid <fa-icon [icon]="forwardButton"></fa-icon></button>
+        </div>
+    </section>
+</div>

@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
 :root {
   --app-dark-color: #0e0e18;
   --app-primary-color: #5957bb;
   --app-secondary-color: #bae399;
-  --app-faded-color: rgba(255, 255, 255, .09);
+  --app-faded-color: rgba(255, 255, 255, 0.09);
   --app-header-height: 200px;
 }
 
-html {
-    font-family: 'Nunito', sans-serif;
+* {
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -21,6 +21,8 @@ body {
   border: 0;
   border-radius: 20px;
   margin: 2px;
+  transition: all;
+  transition-duration: 1s;
 
   &:hover {
     cursor: pointer;
@@ -44,122 +46,44 @@ body {
     background-color: var(--app-faded-color);
     color: #fff;
   }
-}
 
-#header {
-  display: flex;
-  justify-content: space-between;
-  height: var(--app-header-height);
-  width: calc(100vw - 40px);
-  align-items: center;
-  padding: 5px 20px;
-  margin-bottom: 18px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: var(--app-dark-color);
-
-  & > div {
-    display: flex;
-    flex-direction: column;
-
-    & > span {
-      color: #fff;
-      font-size: 20px;
-      opacity: .6;
-      margin-bottom: 5px;
-    }
-
-    & > h1 {
-      color: #fff;
-      margin: 0;
-      font-size: 42px;
-    }
+  &-clear {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid var(--app-primary-color);
   }
 
-  & > button {
-    width: 90px;
-    height: 90px;
-    font-size: 40px;
+  &-white {
+    color: var(--app-dark-color);
+    background-color: #fff;
   }
 }
 
-#main {
-    margin-top: calc(var(--app-header-height) + 10px);
+.back-arrow {
+  position: fixed !important;
+  top: 45px;
+  left: 35px;
+  font-size: 50px;
+  font-weight: normal !important;
+  color: #fff;
+  mix-blend-mode: difference;
 }
 
-#coins {
-  & > div {
-    display: flex;
-    overflow: hidden;
+.app-page {
+  animation-name: transitionIntoView;
+  /*animation-iteration-count: 1;
+  animation-duration: 5s;
+  animation-direction: alternate-reverse;
+  transform-box: view-box;
+  animation-fill-mode: forwards;*/
+}
 
-    & > button {
-        font-size: 30px;
-        padding: 20px 30px;
-        white-space: nowrap;
-
-      & > span:first-child {
-        margin-right: 10px;
-        padding: 5px;
-        width: 30px !important;
-        height: 30px !important;
-        display: inline-block;
-        border-radius: 50%;
-        text-align: center;
-        line-height: .9;
-        background-color: #fff;
-
-        & > fa-icon {
-          color: #161515;
-          font-size: 18px;
-        }
-      }
-    }
+@keyframes transitionIntoView {
+  from {
+    width: 100%;
   }
-}
 
-#photos {
-    width: 97vw;
-    margin-top: 15px;
-
-    & > div {
-        width: 100%;
-        margin-bottom: 15px;
-
-        & > img {
-            width: 100%;
-            border-top-right-radius: 30px;
-            border-top-left-radius: 30px;
-            border-bottom-right-radius: 15px;
-            border-bottom-left-radius: 15px;
-        }
-
-        & > div {
-            padding: 20px 30px;
-            background-color: var(--app-faded-color);
-            border-top-right-radius: 15px;
-            border-top-left-radius: 15px;
-            border-bottom-right-radius: 30px;
-            border-bottom-left-radius: 30px;
-            height: 45px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-
-            & > fa-icon, & > span:nth-child(2) {
-                color: #fff;
-                font-size: 30px;
-                font-weight: 600;
-            }
-
-            & > span:last-child {
-                color: #fff;
-                opacity: .6;
-                font-size: 24px;
-                font-weight: 400;
-                margin-left: auto;
-            }
-        }
-    }
+  to {
+    width: 100%;
+  }
 }

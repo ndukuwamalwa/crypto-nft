@@ -1,0 +1,148 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  height: var(--app-header-height);
+  width: calc(100vw - 40px);
+  align-items: center;
+  padding: 5px 20px;
+  margin-bottom: 18px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--app-dark-color);
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+
+    & > span {
+      color: #fff;
+      font-size: 20px;
+      opacity: 0.6;
+      margin-bottom: 5px;
+    }
+
+    & > h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 42px;
+    }
+  }
+
+  & > button {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+  }
+}
+
+#main {
+  margin-top: calc(var(--app-header-height) + 10px);
+}
+
+#coins {
+  & > div {
+    display: flex;
+    overflow: hidden;
+
+    &:first-child {
+      button {
+        animation-direction: alternate;
+      }
+    }
+
+    &:last-child {
+      button {
+        animation-direction: alternate-reverse;
+      }
+    }
+
+    & > button {
+      font-size: 30px;
+      padding: 20px 30px;
+      white-space: nowrap;
+      animation-name: moveButtons;
+      transform-box: view-box;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+
+      & > span:first-child {
+        margin-right: 10px;
+        padding: 5px;
+        width: 30px !important;
+        height: 30px !important;
+        display: inline-block;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 0.9;
+        background-color: #fff;
+
+        & > fa-icon {
+          color: #161515;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+#photos {
+  width: 97vw;
+  margin-top: 15px;
+
+  & > div {
+    width: 100%;
+    margin-bottom: 15px;
+
+    & > img {
+      width: 100%;
+      border-top-right-radius: 30px;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+    }
+
+    & > div {
+      padding: 20px 30px;
+      background-color: var(--app-faded-color);
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      height: 45px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      & > fa-icon,
+      & > span:nth-child(2) {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      & > span:last-child {
+        color: #fff;
+        opacity: 0.6;
+        font-size: 24px;
+        font-weight: 400;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@keyframes moveButtons {
+  from {
+    transform-origin: 0%;
+    transform: translateX(calc(-397px - 100vw));
+  }
+
+  to {
+    transform-origin: 100%;
+    transform: translateX(calc(397px - 100vw));
+  }
+}

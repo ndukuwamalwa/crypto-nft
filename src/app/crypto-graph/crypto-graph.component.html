@@ -1,0 +1,22 @@
+<div class="app-page">
+    <fa-icon [icon]="backButton" [fixedWidth]="true" class="back-arrow" routerLink="/"></fa-icon>
+    <div id="header">
+        <div>
+            <h2><fa-icon [icon]="crypto.icon" [fixedWidth]="true"></fa-icon><span>{{crypto.label}}</span></h2>
+        </div>
+        <div>
+            <h1>{{1579.88 | currency}} <span class="gain">+11.62(0.74%)</span></h1>
+        </div>
+        <div>
+            <button class="btn" [ngClass]="{'btn-grey': d !== selectedDuration, 'btn-white': d === selectedDuration }"
+                *ngFor="let d of durations" (click)="onDurationSelected(d)">{{d}}</button>
+        </div>
+    </div>
+    <div id="graph">
+        <canvas id="chart"></canvas>
+    </div>
+    <div id="actions">
+        <button class="btn btn-primary">sell <fa-icon [icon]="forwardButton"></fa-icon></button>
+        <button class="btn btn-secondary">buy <fa-icon [icon]="forwardButton"></fa-icon></button>
+    </div>
+</div>

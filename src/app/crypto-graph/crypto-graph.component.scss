@@ -1,0 +1,72 @@
+.gain {
+    color: var(--app-secondary-color);
+}
+
+#header {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    & > div {
+        &:first-child {
+            display: flex;
+            flex-direction: row;
+            h2 > fa-icon {
+                margin-right: 7px;
+            }
+        }
+
+        &:nth-child(2) {
+            h1 {
+                font-size: 50px;
+                margin: 0;
+                span {
+                    font-size: 16px !important;
+                    opacity: .8;
+                }
+            }
+        }
+
+        &:last-child {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            overflow-x: hidden;
+            width: 100%;
+
+            button {
+                width: 100px !important;
+            }
+        }
+    }
+}
+
+#graph {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    canvas {
+        height: 100%;
+    }
+}
+
+#actions {
+    height: 19vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        flex-basis: 49%;
+        font-size: 26px;
+
+        &:first-child > fa-icon {
+            transform: rotateX(90deg);
+        }
+    }
+}
