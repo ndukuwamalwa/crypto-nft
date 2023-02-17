@@ -18,7 +18,7 @@ export class CryptoGraphComponent implements OnInit {
   selectedDuration: string = '1h';
   private durationItems: { [key: string]: number } = {
     '15min': 15,
-    '1h': 60,
+    '1h': 6,
     '1d': 24,
     '1w': 7,
     '1m': 30,
@@ -57,6 +57,7 @@ export class CryptoGraphComponent implements OnInit {
           {
             label: 'Gain/Loss',
             data: this.getData(),
+            borderWidth: 1,
           },
         ],
       },
@@ -64,6 +65,9 @@ export class CryptoGraphComponent implements OnInit {
         borderColor: '#5957bb',
         color: '#bae399',
         backgroundColor: '#bae399',
+        interaction: {
+          intersect: false
+        },
         plugins: {
           legend: {
             display: false,

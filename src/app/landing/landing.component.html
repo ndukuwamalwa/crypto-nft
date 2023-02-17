@@ -30,7 +30,7 @@
             <div>
                 <fa-icon [icon]="selectedButton.icon" [fixedWidth]="true"></fa-icon>
                 <span>{{p.amount}}</span>
-                <span>{{counter}}</span>
+                <span>{{counter$ | async}}</span>
             </div>
         </div>
     </div>
