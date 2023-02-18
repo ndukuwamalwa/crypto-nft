@@ -84,19 +84,38 @@ body {
   color: #fff;
   mix-blend-mode: difference;
   cursor: pointer;
+  animation: none;
 }
 
-img {
-  animation-name: shoImage;
-  animation-duration: 4s;
+button {
+  animation-name: animateBtn;
+  transform-origin: 0%;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 500ms;
 }
 
-@keyframes shoImage {
+@keyframes animateBtn {
   from {
-    opacity: 0;
+    transform: scaleX(0) scaleY(0);
   }
 
   to {
-    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+.app-page {
+  animation: navigateAnime;
+  animation-duration: 600ms;
+}
+
+@keyframes navigateAnime {
+  from {
+    transform: translateX(90%);
+  }
+
+  to {
+    transform: translateX(none);
   }
 }

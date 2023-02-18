@@ -16,7 +16,9 @@
         <canvas id="chart"></canvas>
     </div>
     <div id="actions">
-        <button class="btn btn-primary">sell <fa-icon [icon]="forwardButton"></fa-icon></button>
-        <button class="btn btn-secondary">buy <fa-icon [icon]="forwardButton"></fa-icon></button>
+        <button class="btn btn-primary">sell <fa-icon [icon]="forwardButton" [classes]="['fa-rotate-by']"
+                style="--fa-rotate-angle: -45deg;"></fa-icon></button>
+        <button class="btn btn-secondary">buy <fa-icon [icon]="forwardButton" [classes]="['fa-rotate-by']"
+                style="--fa-rotate-angle: 45deg;"></fa-icon></button>
     </div>
 </div>
